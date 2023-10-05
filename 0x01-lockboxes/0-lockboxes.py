@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""You have n number of locked boxes in front of you. Each box is numbered 
+"""You have n number of locked boxes in front of you. Each box is numbered
     sequentially from 0 to n - 1 and each box may contain keys to the other
     boxes.
 
@@ -13,6 +13,8 @@
     The first box boxes[0] is unlocked
     Return True if all boxes can be opened, else return False
 """
+
+
 def canUnlockAll(boxes):
     """Create dfs(box), a recursive helper function that
        performs Depth-First Search. It takes a box number as input, marks
@@ -30,7 +32,7 @@ def canUnlockAll(boxes):
             if key not in visited:
                 dfs(key)
 
-    """After the DFS traversal, if the number of visited boxes equals the 
+    """After the DFS traversal, if the number of visited boxes equals the
         total number of boxes (n), it means all boxes can be opened,
         and the function returns True. Otherwise, it returns False.
     """
