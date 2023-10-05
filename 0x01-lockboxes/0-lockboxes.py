@@ -16,12 +16,7 @@
 
 
 def canUnlockAll(boxes):
-    """Create dfs(box), a recursive helper function that
-       performs Depth-First Search. It takes a box number as input, marks
-       it as visited, and recursively visits all the boxes
-       that can be opened from this box.
-    """
-     myKeys = [0]
+    myKeys = [0]
     for key in myKeys:
         for boxKey in boxes[key]:
             if boxKey not in myKeys and boxKey < len(boxes):
