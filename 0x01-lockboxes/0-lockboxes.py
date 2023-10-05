@@ -21,28 +21,11 @@ def canUnlockAll(boxes):
        it as visited, and recursively visits all the boxes
        that can be opened from this box.
     """
-    def dfs(box):
-        """
-        initialize an empty set visited to keep track of visited boxes.
-        Then, call the DFS function starting from the
-        first box (box number 0).
-        """
-        visited.add(box)
-        for key in boxes[box]:
-            if key not in visited:
-                dfs(key)
-
-    """After the DFS traversal, if the number of visited boxes equals the
-        total number of boxes (n), it means all boxes can be opened,
-        and the function returns True. Otherwise, it returns False.
-    """
-    n = len(boxes)
-    visited = set()
-    dfs(0)
-
-    """This algorithm ensures that it explores all reachable boxes from the
-      first box. If all boxes are visited, it means every box can be opened,
-      and the function returns True. If there are unvisited boxes,
-      it returns False.
-    """
-    return len(visited) == n
+     myKeys = [0]
+    for key in myKeys:
+        for boxKey in boxes[key]:
+            if boxKey not in myKeys and boxKey < len(boxes):
+                myKeys.append(boxKey)
+    if len(myKeys) == len(boxes):
+        return True
+    return False
