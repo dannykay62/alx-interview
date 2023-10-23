@@ -18,11 +18,11 @@
 import sys
 
 
-
-status_code_counts = {"200": 0, "301": 0, "400": 0, "401": 0, "402": 0, "403": 0, "404": 0, "405": 0, "500": 0}
-
+# status_code_counts = {"200": 0, "301": 0, "400": 0, "401": 0,
+#                       "402": 0, "403": 0, "404": 0, "405": 0, "500": 0}
 if __name__ == "__main__":
-    stat_codes = {"200": 0, "301": 0, "400": 0, "401": 0, "402": 0, "403": 0, "404": 0, "405": 0, "500": 0}
+    stat_codes = {"200": 0, "301": 0, "400": 0, "401": 0, "402": 0, "403": 0,
+                  "404": 0, "405": 0, "500": 0}
 
     total_count = 1
     file_size = 0
@@ -37,7 +37,7 @@ if __name__ == "__main__":
             return int(line_parsed[-1])
         except Exception:
             return 0
-        
+
     def print_stat():
         """Print in order"""
         print("File size: {}".format(file_size))
