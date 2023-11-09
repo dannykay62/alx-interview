@@ -1,5 +1,5 @@
 #!/usr/bin/node
-
+// Print Star Wars Characters
 const request = require('request');
 
 const movie_Num = process.argv[2] + '/';
