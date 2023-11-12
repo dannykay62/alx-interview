@@ -1,13 +1,12 @@
 #!/usr/bin/node
 // prints characters of starwars movies one after the other
-
 const axios = require('axios');
 
 async function getMovieCharacters(movieId) {
   try {
     const response = await axios.get(`https://swapi.dev/api/films/${movieId}/`);
     const movieData = response.data;
-    
+
     if (!movieData.characters || movieData.characters.length === 0) {
       console.log(`No characters found for the given movie ID: ${movieId}`);
       process.exit(1);
