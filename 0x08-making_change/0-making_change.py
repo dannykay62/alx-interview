@@ -2,6 +2,7 @@
 """ determine the fewest number of coins needed to meet a given amount total
     Given a pile of coins of different values"""
 
+
 def makeChange(coins, total):
     """
     Using the technique "Coin Change" or "Minimum Coin Change" algorithm
