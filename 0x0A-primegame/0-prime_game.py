@@ -1,40 +1,29 @@
 #!/usr/bin/python3
-"""Prime game program"""
+"""Program that performs prime game"""
 
 
-def is_prime(num):
-    """Checks if a number is prime"""
-    if num < 2:
-        return False
-    for i in range(2, int(num ** 0.5) + 1):
-        if num % i == 0:
-            return False
-    return True
-
-
-def isWinner(x, numbers):
-    """Counts total prime numbers in a given game"""
-    def count_primes(num):
-        """Counts total prime numbers in a given game"""
-        count = 0
-        for i in range(2, num + 1):
-            if is_prime(i):
-                count += 1
-        return count
-
-    def game_winner(num):
-        """determine the game winner"""
-        primes = count_primes(num)
-        return "Maria" if primes % 2 == 0 else "Ben"
-
-    winners = [game_winner(n) for n in numbers]
-
-    maria_wins = winners.count("maria")
-    ben_wins = winners.count("ben")
-
-    if maria_wins > ben_wins:
+def isWinner(x, nums):
+    """Function that performs prime game"""
+    if not nums or x < 1:
+        return None
+    n = max(nums)
+    fltr = [True for _ in range(max(n + 1, 2))]
+    for i in range(2, int(pow(n, 0.5)) + 1):
+        if not fltr[i]:
+            continue
+        for j in range(i * i, n + 1, i):
+            fltr[j] = False
+    fltr[0] = fltr[1] = False
+    c = 0
+    for i in range(len(fltr)):
+        if fltr[i]:
+            c += 1
+        fltr[i] = c
+    plyr1 = 0
+    for n in nums:
+        plyr1 += fltr[n] % 2 == 1
+    if plyr1 * 2 == len(nums):
+        return None
+    if plyr1 * 2 > len(nums):
         return "Maria"
-    elif maria_wins < ben_wins:
-        return "Ben"
-    else:
-        return "Ben"
+    return "Ben"
